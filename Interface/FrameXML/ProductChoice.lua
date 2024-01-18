@@ -97,6 +97,7 @@ function ProductChoiceFrame_Update(self)
 	self.Inset.ClaimButton:SetEnabled(selectedID ~= nil);
 end
 
+-- data 这个参数从哪来？
 function ProductChoiceFrameItem_SetUpDisplay(self, data, forceUpdate)
 	self.Name:SetText(data.name);
 	if ( data.subtitle ) then
@@ -130,6 +131,8 @@ function ProductChoiceFrameItem_SetUpDisplay(self, data, forceUpdate)
 	end
 end
 
+
+-- 商城界面的右边框架 ...
 function ProductChoiceFrame_SetUp(self, forceUpdate)
 	self.selectedData = nil;
 
@@ -156,6 +159,9 @@ function ProductChoiceFrame_SetUp(self, forceUpdate)
 				button:SetPoint("TOPLEFT", self.Inset.Buttons[i - 1], "TOPRIGHT", 10, 0);
 			end
 		end
+
+		-- 这个data应该就是服务器上的battlepay_dispaly_info_visual数据 ...
+
 		if ( not data ) then
 			button:Hide();
 		else

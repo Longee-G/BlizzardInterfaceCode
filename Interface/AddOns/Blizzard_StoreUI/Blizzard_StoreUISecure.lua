@@ -3527,7 +3527,10 @@ end
 function StoreProductCard_ShowModel(self, entryInfo, showShadows, forceModelUpdate)
 	local owned = entryInfo.alreadyOwned;
 	local cards = entryInfo.sharedData.cards;
-	local modelSceneID = entryInfo.sharedData.modelSceneID or cards[1].modelSceneID; -- Shared data can specify a scene to override, otherwise use the scene for the model on the card
+
+	-- modelSceneID 是服务器下发的吗？
+	-- Shared data can specify a scene to override, otherwise use the scene for the model on the card
+	local modelSceneID = entryInfo.sharedData.modelSceneID or cards[1].modelSceneID; 
 
 	self.ModelScene:Show();
 	if self.Shadows then
@@ -3546,6 +3549,7 @@ function StoreProductCard_ShowModel(self, entryInfo, showShadows, forceModelUpda
 			actorTag = baseActorTag;
 		end
 
+		-- 估计是在这里了，怎么得到true 的返回 ...
 		local actor = self.ModelScene:GetActorByTag(actorTag);
 		if actor then
 			actor:SetModelByCreatureDisplayID(card.creatureDisplayInfoID);

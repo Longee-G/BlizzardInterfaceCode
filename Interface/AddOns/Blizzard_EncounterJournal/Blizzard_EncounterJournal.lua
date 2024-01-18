@@ -820,6 +820,8 @@ function EncounterJournal_DisplayCreature(self, forceUpdate)
 
 	modelScene.imageTitle:SetText(self.name);
 
+	-- 怎么让客户端成为 GMClient ?
+	-- 需要下载不同的客户端MPQ数据...
 	local isGMClient = IsGMClient();
 	modelScene.modelName:SetShown(isGMClient);
 	modelScene.modelDisplayId:SetShown(isGMClient);
